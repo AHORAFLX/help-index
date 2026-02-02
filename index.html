@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Centro de Ayuda de AHORA | Soporte de Producto</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#001b5e",
+                        accent: "#00c1ff",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                },
+            },
+        };
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #001b5e;
+            --accent-color: #00c1ff;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, var(--primary-color) 0%, #002d9c 100%);
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(120px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .ai-bubble {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        .tooltip-text {
+            visibility: hidden;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 120%;
+            right: 0;
+            white-space: nowrap;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            right: 1rem;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--primary-color) transparent transparent transparent;
+        }
+        .ai-bubble-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200 min-h-screen flex flex-col">
+    <nav class="bg-primary text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <img src="./img/logo.png" alt="AHORA" class="h-8 w-auto" />
+                    <span
+                        class="ml-4 text-lg font-medium tracking-normal opacity-70 border-l border-white/20 pl-4 hidden sm:block">Centro
+                        de Ayuda</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="p-2 rounded-lg hover:bg-white/10 transition-colors" onclick="toggleDarkMode()">
+                        <span class="material-symbols-outlined text-[20px] dark:hidden">dark_mode</span>
+                        <span class="material-symbols-outlined text-[20px] hidden dark:block">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="bg-primary pt-12 pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">Centro de Ayuda de AHORA</h1>
+            <p class="text-lg text-blue-100 max-w-2xl mx-auto opacity-90">
+                Selecciona un producto para acceder a la documentación técnica, notas de la versión y guías de
+                configuración.
+            </p>
+        </div>
+    </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 flex-grow">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <a class="product-card group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-200/50 dark:border-slate-700/50 transition-all duration-300 flex flex-col items-center text-center"
+                href="https://ahora.freshdesk.com">
+                <div
+                    class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-4 text-primary dark:text-accent group-hover:scale-110 transition-transform">
+                    <img src="./img/ahora.png" alt="AHORA 5 ERP" class="w-full h-full object-cover rounded-lg" />
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">AHORA 5 ERP</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">Gestión integral de procesos
+                    empresariales.</p>
+                <span
+                    class="mt-auto text-primary dark:text-accent text-xs font-semibold uppercase tracking-wider group-hover:underline">Ver
+                    documentación →</span>
+            </a>
+            <a class="product-card group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-200/50 dark:border-slate-700/50 transition-all duration-300 flex flex-col items-center text-center"
+                href="https://ayuda.ahora.es/Flexygo">
+                <div
+                    class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-4 text-primary dark:text-accent group-hover:scale-110 transition-transform">
+                    <img src="./img/flexygo.png" alt="Flexygo" class="w-full h-full object-cover rounded-lg" />
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Flexygo</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">Plataforma Low-Code impulsada
+                    por IA.</p>
+                <span
+                    class="mt-auto text-primary dark:text-accent text-xs font-semibold uppercase tracking-wider group-hover:underline">Ver
+                    documentación →</span>
+            </a>
+            <!--a class="product-card group bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-200/50 dark:border-slate-700/50 transition-all duration-300 flex flex-col items-center text-center"
+                href="#">
+                <div
+                    class="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-4 text-primary dark:text-accent group-hover:scale-110 transition-transform">
+                    <img src="./img/IAnalytics.png" alt="AHORA Analytics"
+                        class="w-full h-full object-cover rounded-lg" />
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">AHORA Analytics</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">Inteligencia de negocio y
+                    visualización de datos.</p>
+                <span
+                    class="mt-auto text-primary dark:text-accent text-xs font-semibold uppercase tracking-wider group-hover:underline">Ver
+                    documentación →</span>
+            </a-->
+            <div
+                class="product-card group bg-white/50 dark:bg-slate-800/50 p-6 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 transition-all duration-300 flex flex-col items-center text-center opacity-70">
+                <div
+                    class="w-14 h-14 bg-slate-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-4 text-slate-400">
+                    <span class="material-symbols-outlined text-3xl">add</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-400 dark:text-slate-500 mb-2">Próximamente</h3>
+                <p class="text-sm text-slate-400 dark:text-slate-500 mb-4 line-clamp-2">Nuevos productos se añadirán
+                    aquí.</p>
+            </div>
+        </div>
+        <section class="mt-20 pb-20 border-t border-slate-200 dark:border-slate-800 pt-16">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-200">¿No encuentras lo que buscas?</h3>
+                <p class="text-slate-500 dark:text-slate-400 mt-2">Nuestros canales de soporte están aquí para ayudarte.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200/60 dark:border-slate-700/50 flex items-start gap-4 hover:shadow-md transition-shadow cursor-pointer"
+                    href="https://www.ahora.es" target="_blank">
+                    <div class="p-3 bg-blue-50 dark:bg-blue-900/20 text-primary dark:text-accent rounded-lg">
+                        <span class="material-symbols-outlined">public</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base">Información Comercial</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Conoce más sobre nuestras soluciones
+                            y servicios en nuestra web oficial.</p>
+                        <span class="text-primary dark:text-accent text-xs font-semibold mt-2 block hover:underline">Ir
+                            a la web</span>
+                    </div>
+                </a>
+                <a class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200/60 dark:border-slate-700/50 flex items-start gap-4 hover:shadow-md transition-shadow cursor-pointer"
+                    href="https://www.youtube.com/@AhoraEs" target="_blank">
+                    <div class="p-3 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg">
+                        <span class="material-symbols-outlined">play_circle</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base">Canal de YouTube</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Videotutoriales y demostraciones de
+                            producto en video.</p>
+                        <span class="text-primary dark:text-accent text-xs font-semibold mt-2 block hover:underline">Ir
+                            al canal</span>
+                    </div>
+                </a>
+                <a class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200/60 dark:border-slate-700/50 flex items-start gap-4 hover:shadow-md transition-shadow cursor-pointer"
+                    href="https://www.udemy.com/user/ahora-academy/" target="_blank">
+                    <div class="p-3 bg-blue-50 dark:bg-blue-900/20 text-primary dark:text-accent rounded-lg">
+                        <span class="material-symbols-outlined">school</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 dark:text-white text-base">AHORA Academy</h4>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Cursos de formación certificados para
+                            tu equipo.</p>
+                        <span class="text-primary dark:text-accent text-xs font-semibold mt-2 block hover:underline">Ver
+                            academia</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex flex-col gap-1 items-center md:items-start">
+                    <span
+                        class="text-xl font-bold tracking-tighter flex items-center text-primary dark:text-white uppercase">
+                        AHORA
+                    </span>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs">© 2026 AHORA Enterprise. Todos los derechos
+                        reservados.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-accent transition-colors text-sm font-medium"
+                        href="https://www.ahora.es/politica-de-privacidad/">Política de Privacidad</a>
+                    <a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-accent transition-colors text-sm font-medium"
+                        href="https://www.ahora.es/aviso-legal/">Aviso Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://chatgpt.com/g/g-NvpgGa7B5-ahoramind" target="_blank" class="ai-bubble-container fixed bottom-8 right-8 group">
+        <div class="ai-bubble w-16 h-16 bg-white dark:bg-slate-800 rounded-full shadow-lg border-2 border-primary dark:border-accent flex items-center justify-center cursor-pointer hover:shadow-xl transition-shadow">
+            <img src="./img/ahoramind.png" alt="AhoraMind AI" class="w-12 h-12 object-cover rounded-full" />
+        </div>
+        <div class="tooltip-text">¿Necesitas ayuda? Interactúa con nuestra IA</div>
+    </a>
+
+</body>
+
+</html>
